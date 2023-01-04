@@ -25,8 +25,11 @@ public class Main {
             if (Arrays.asList(romanDopusk).contains(ras[2]) && Arrays.asList(romanDopusk).contains(ras[0])) {  // есть ли в допустим значениях роман цифрах введенные и тип роман ли это
                 int x = Arrays.asList(romanDopusk).indexOf(ras[0]);  // поиск индекса нужного числа А
                 int y = Arrays.asList(romanDopusk).indexOf(ras[2]);  // поиск индекса нужного числа Б
-                return convetrer(arabMath(Integer.parseInt(arab[x]), ras[1], Integer.parseInt(arab[y])));
-                // вызов метода для решения по араб цифрам с вызовом метода ковертации для ответа в римских цифрах
+                 if (y>=x){
+                    throw new Exception(); // ошибка т.к. результат будет меньше 1
+                 } else {
+                    return convetrer(arabMath(Integer.parseInt(arab[x]), ras[1], Integer.parseInt(arab[y])));
+                 } // вызов метода для решения по араб цифрам с вызовом метода ковертации для ответа в римских цифрах
             } else if (Arrays.asList(arab).contains(ras[0]) && Arrays.asList(arab).contains(ras[2])) {   // есть ли в допустим значениях араб цифрах введенные и тип араб ли это
                 int i = Integer.parseInt(ras[0]), j = Integer.parseInt(ras[2]);
                 if (i <= 10 && j <= 10 && i >= 1 && j >= 1) {
